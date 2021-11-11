@@ -11,9 +11,14 @@ const usersRouter = require("./routes/userRoutes");
 var app = express();
 const port = process.env.PORT || 5000;
 
-app.use(
+https: app.use(
   cors({
-    origin: ["http://localhost:3000"],
+    origin: [
+      "http://localhost:3001",
+      "http://localhost:3000",
+      "https://todo-apply.herokuapp.com",
+      "https://keen-kare-cb230b.netlify.app",
+    ],
   })
 );
 app.use(logger("dev"));
