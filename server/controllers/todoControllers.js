@@ -5,7 +5,7 @@ const AppError = require("../utils/AppError");
 //CRUD operations
 //CREATE one todo
 const createOneTodo = catchAsync(async (req, res, next) => {
-  //const userId = req.user._id;
+  const userId = req.user._id;
   if (!req.body.title || !req.body.description) {
     return next(
       new AppError("You need to provide both title and description", 401)
@@ -16,6 +16,7 @@ const createOneTodo = catchAsync(async (req, res, next) => {
   const todo = {
     title,
     description,
+    userId,
   };
 
   const newTodo = await Todo.create(todo);
